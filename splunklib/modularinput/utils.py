@@ -67,6 +67,7 @@ def parse_xml_data(parent_node, child_node_tag):
         if child.tag == child_node_tag:
             if child_node_tag == "stanza":
                 data[child.get("name")] = {}
+                data[child.get("name")]['app'] = child.get("app")
                 for param in child:
                     data[child.get("name")][param.get("name")] = parse_parameters(param)
         elif "item" == parent_node.tag:
